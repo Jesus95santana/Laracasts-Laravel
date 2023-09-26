@@ -1,4 +1,4 @@
-html<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,6 +8,19 @@ html<!doctype html>
     <title>Document</title>
 </head>
 <body>
+    <h1>Hello world</h1>
+
+    <?php
+    $greeting = "Goodbye";
+
+    $numbers = ['one', 'two', 'three'];
+    ?>
+
+    <?= "<p>$greeting</p>"?>
+
+    <?php foreach($numbers as $number) : ?>
+    <li><?= $number ?></li>
+    <?php endforeach ?>
 
 </body>
 </html>
