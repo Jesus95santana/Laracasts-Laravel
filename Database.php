@@ -9,7 +9,7 @@ class Database {
             'charset' => 'utf8mb4'
         ];
 
-        http_build_query($data);
+//        http_build_query($data);
 
         $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
 
