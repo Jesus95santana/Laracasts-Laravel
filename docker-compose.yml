@@ -1,0 +1,22 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Replace with your desired password
+    ports:
+      - "3306:3306"  # Map container port 3306 to host port 3306
+  mariadb:
+    image: mariadb:10.5.8
+    container_name: maria
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demo
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+    volumes:
+      - ./data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
