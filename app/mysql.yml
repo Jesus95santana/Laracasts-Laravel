@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7.43
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Replace with your desired password
+      MYSQL_DATABASE: myapp
+    volumes:
+      - my-mysql-volume:/var/lib/mysql
+    ports:
+      - "3306:3306"  # Map container port 3306 to host port 3306
+volumes:
+  my-mysql-volume:
