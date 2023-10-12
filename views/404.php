@@ -1,9 +1,6 @@
 <?php require("layouts/head.php") ?>
 <?php require("layouts/nav.php") ?>
 
-    <body class="h-full">
-
-    <div class="min-h-full">
 
 
         <main>
@@ -11,8 +8,6 @@
                 <h1>404 Page not found</h1>
             </div>
         </main>
-    </div>
 
-    </body>
 
 <?php require("layouts/footer.php") ?>
