@@ -1,6 +1,6 @@
-<?php require("layouts/head.php") ?>
-<?php require("layouts/nav.php") ?>
-<?php require("layouts/banner.php") ?>
+<?php require base_path("views/layouts/head.php") ?>
+<?php require base_path("views/layouts/nav.php") ?>
+<?php require base_path("views/layouts/banner.php") ?>
 
 
         <main>
@@ -22,4 +22,4 @@
         </main>
 
 
-<?php require("layouts/footer.php") ?>
+<?php require base_path("views/layouts/footer.php") ?>
