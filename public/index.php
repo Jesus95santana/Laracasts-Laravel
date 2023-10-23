@@ -1,17 +1,21 @@
 <?php
-use \Core\Router;
-const BASE_PATH = __DIR__ . '/../';
+
+use Core\Router;
+
+const BASE_PATH = __DIR__.'/../';
 
 
-require BASE_PATH . 'Core/functions.php';
+require BASE_PATH.'Core/functions.php';
 
-spl_autoload_register(function($class) {
+spl_autoload_register(function ($class) {
 
-    $class = str_replace('\\', '/',$class);
+    $class = str_replace('\\', '/', $class);
 
     require base_path("{$class}.php");
 });
 
+
+require base_path('bootstrap.php');
 
 $router = new Router();
 $routes = require base_path('routes.php');
