@@ -12,12 +12,17 @@ class Beverage
 
 class Milk extends Beverage
 {
-    public $temperature;
-
-    public function __construct()
+    function __construct()
     {
-        $this->temperature = 'cold';
+        $this->temperature = "cold";
     }
+
+    public function getInfo()
+    {
+        return "This beverage is {$this->temperature}. I like my milk this way.";
+    }
+
 }
 
-$beverage = new Milk;
+$milk = new Milk();
+echo $milk->getInfo();
