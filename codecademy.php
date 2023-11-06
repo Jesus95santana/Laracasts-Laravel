@@ -1,19 +1,16 @@
 <?php
 
-class Beverage
+class AdamsUtils
 {
-    private $color;
+    public static $the_answer = 42;
 
-    public function getColor()
+    public static function addTowel($string)
     {
-        return $this->color;
-    }
-
-    public function setColor($arg)
-    {
-        $lowercase = strtolower($arg);
-        $this->color = $lowercase;
+        return $string." and a towel.";
     }
 }
 
-$soda = new Beverage();
+$items = "I brought apples";
+
+echo AdamsUtils::$the_answer;
+echo AdamsUtils::addTowel($items);
