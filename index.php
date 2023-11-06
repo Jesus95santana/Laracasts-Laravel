@@ -5,16 +5,15 @@ class Team
     protected $name;
     protected $members = [];
 
-    # 'CMD + N' Generate Constructor shortcut (Mac)
     public function __construct($name, $members = [])
     {
         $this->name = $name;
         $this->members = $members;
     }
 
-    public static function start($name, $members = [])
+    public static function start(...$params)
     {
-        return new static($name, $members);
+        return new static(...$params);
     }
 
     public function name()
@@ -36,10 +35,29 @@ class Team
     {
 
     }
+
+    public function manager()
+    {
+
+    }
 }
 
-$acme = Team::start('Acme',
-    ['John Doe', 'Johnny Sims']);
+class Member
+{
+    protected $name;
 
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
 
+    public function lastViewed()
+    {
+    }
+}
+
+$acme = Team::start('Acme', [
+    new Member('John Doe'),
+    new Member('Lilly Jim')
+]);
 var_dump($acme);
