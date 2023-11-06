@@ -2,25 +2,18 @@
 
 class Beverage
 {
-    public $opacity;
-    private $temperature, $color;
+    private $color;
 
-    function __construct($temperature, $color)
+    public function getColor()
     {
-        $this->temperature = $temperature;
-        $this->color = $color;
+        return $this->color;
     }
 
-    function getInfo()
+    public function setColor($arg)
     {
-        return "This beverage is $this->temperature and $this->color.";
-    }
-}
-
-class Milk extends Beverage
-{
-    function setOpacity($opacity)
-    {
-        $this->opacity = $opacity;
+        $lowercase = strtolower($arg);
+        $this->color = $lowercase;
     }
 }
+
+$soda = new Beverage();
