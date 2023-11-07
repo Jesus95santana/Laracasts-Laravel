@@ -1,63 +1,32 @@
 <?php
 
-class Team
+class AchievementType
 {
-    protected $name;
-    protected $members = [];
-
-    public function __construct($name, $members = [])
+    public function name()
     {
-        $this->name = $name;
-        $this->members = $members;
+
     }
 
-    public static function start(...$params)
+    public function difficulty()
     {
-        return new static(...$params);
+
+    }
+
+    public function icon()
+    {
+
+    }
+}
+
+class FirstThousandPoints extends AchievementType
+{
+    public function qualifier($user)
+    {
+
     }
 
     public function name()
     {
-        return $this->name;
-    }
-
-    public function members()
-    {
-        return $this->members;
-    }
-
-    public function add($name)
-    {
-        $this->members[] = $name;
-    }
-
-    public function cancel()
-    {
-
-    }
-
-    public function manager()
-    {
-
+        return 'I overide';
     }
 }
-
-class Member
-{
-    protected $name;
-
-    public function __construct($name)
-    {
-        $this->name = $name;
-    }
-
-    public function lastViewed()
-    {
-    }
-}
-
-$acme = Team::start('Acme', [
-    new Member('John Doe'),
-    new Member('Lilly Jim')
-]);
-var_dump($acme);
