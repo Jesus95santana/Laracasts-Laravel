@@ -1,34 +1,31 @@
 <?php
 
-interface Newsletter
+class TennisMatch
 {
-    public function subscribe($email);
-}
+    protected $playerOne;
 
-class CampaignMonitor implements Newsletter
-{
-    public function subscribe($email)
+    public function score()
     {
-        die('subscribing with Campaign Monitor');
+
+    }
+
+    public function playerOne()
+    {
+        return $this->playerOne;
+    }
+
+    private function hasWinner()
+    {
+
+    }
+
+    private function hasAdvantage()
+    {
+
+    }
+
+    private function inDeuce()
+    {
+
     }
 }
-
-class Drip implements Newsletter
-{
-    public function subscribe($email)
-    {
-        die('subscribing with Drip');
-    }
-}
-
-class NewsletterSubscriptionsController
-{
-    public function store(Newsletter $newsletter)
-    {
-        $email = 'test@gmail.com';
-        $newsletter->subscribe($email);
-    }
-}
-
-$controller = new NewsletterSubscriptionsController();
-$controller->store(new CampaignMonitor());
