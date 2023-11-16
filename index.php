@@ -1,31 +1,66 @@
 <?php
 
-class TennisMatch
+interface Gateway
 {
-    protected $playerOne;
+    public function findCustomer();
 
-    public function score()
+    public function findSubscriptionByCustomer();
+}
+
+class Subscription
+{
+    protected Gateway $gateway;
+
+    public function __construct(Gateway $gateway)
+    {
+        $this->gateway = $gateway;
+    }
+
+    public function create()
     {
 
     }
 
-    public function playerOne()
+    public function cancel()
     {
-        return $this->playerOne;
+        $this->gateway->findCustomer();
     }
 
-    private function hasWinner()
-    {
-
-    }
-
-    private function hasAdvantage()
+    public function invoice()
     {
 
     }
 
-    private function inDeuce()
+    public function swap($newPlan)
     {
 
     }
 }
+
+class StripeGateway implements Gateway
+{
+    public function findCustomer()
+    {
+
+    }
+
+    public function findSubscriptionByCustomer()
+    {
+
+    }
+}
+
+class BraintreeGateway implements Gateway
+{
+    public function findCustomer()
+    {
+
+    }
+
+    public function findSubscriptionByCustomer()
+    {
+
+    }
+}
+
+new Subscription(new BraintreeGateway());
