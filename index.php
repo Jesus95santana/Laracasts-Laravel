@@ -1,66 +1,32 @@
 <?php
 
-interface Gateway
+class Age
 {
-    public function findCustomer();
+    private $age;
 
-    public function findSubscriptionByCustomer();
-}
-
-class Subscription
-{
-    protected Gateway $gateway;
-
-    public function __construct(Gateway $gateway)
+    /**
+     * @param $age
+     */
+    public function __construct($age)
     {
-        $this->gateway = $gateway;
+        if ($age <= 0 || $age >= 120) {
+            throw new \http\Exception\InvalidArgumentException('That makes no sense');
+        }
+
+        $this->age = $age;
     }
 
-    public function create()
+    public function increment()
     {
-
+        return new self($this->age + 1);
     }
 
-    public function cancel()
+    public function get()
     {
-        $this->gateway->findCustomer();
-    }
-
-    public function invoice()
-    {
-
-    }
-
-    public function swap($newPlan)
-    {
-
+        return $this->age;
     }
 }
 
-class StripeGateway implements Gateway
-{
-    public function findCustomer()
-    {
-
-    }
-
-    public function findSubscriptionByCustomer()
-    {
-
-    }
-}
-
-class BraintreeGateway implements Gateway
-{
-    public function findCustomer()
-    {
-
-    }
-
-    public function findSubscriptionByCustomer()
-    {
-
-    }
-}
-
-new Subscription(new BraintreeGateway());
+$age = new Age(35);
+$age = $age->increment();
+var_dump($age->get());
