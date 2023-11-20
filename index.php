@@ -1,32 +1,58 @@
 <?php
 
-class Age
+class TeamException extends Exception
 {
-    private $age;
-
-    /**
-     * @param $age
-     */
-    public function __construct($age)
+    public static function fromTooManyMembers()
     {
-        if ($age <= 0 || $age >= 120) {
-            throw new \http\Exception\InvalidArgumentException('That makes no sense');
-        }
-
-        $this->age = $age;
-    }
-
-    public function increment()
-    {
-        return new self($this->age + 1);
-    }
-
-    public function get()
-    {
-        return $this->age;
+        return new static('You may not add more than 3 team members.');
     }
 }
 
-$age = new Age(35);
-$age = $age->increment();
-var_dump($age->get());
+class Member
+{
+    public $name;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+}
+
+class Team
+{
+    protected $members = [];
+
+    public function add(Member $member)
+    {
+        if (count($this->members) === 3) {
+            throw TeamException::fromTooManyMembers();
+        }
+        $this->members[] = $member;
+    }
+
+    public function members()
+    {
+        return $this->members;
+    }
+}
+
+class TeamMembersController
+{
+    public function store()
+    {
+        $team = new Team;
+
+        try {
+            $team->add(new Member('Jane Doe'));
+            $team->add(new Member('John Doe'));
+            $team->add(new Member('Frank Doe'));
+            $team->add(new Member('Susan Doe'));
+
+            var_dump($team->members());
+        } catch (TeamException $e) {
+            var_dump($e);
+        }
+    }
+}
+
+(new TeamMembersController())->store();
