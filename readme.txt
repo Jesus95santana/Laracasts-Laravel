@@ -1,0 +1,1 @@
+Spent 1 hour reconfiguring docker and reviewing First Service Container code
