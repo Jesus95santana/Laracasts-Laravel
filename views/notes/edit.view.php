@@ -6,6 +6,7 @@
 
             <form method="POST" action="/note">
                 <input type="hidden" name="_method" value="PATCH">
+                <input type="hidden" name="id" value="<?= $note['id'] ?>">
                 <div class="space-y-12">
                     <div class="border-b border-gray-900/10 pb-12">
 
