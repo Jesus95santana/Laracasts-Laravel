@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Middleware\Middleware;
+
 class Router
 {
     protected $routes = [];
@@ -58,13 +60,7 @@ class Router
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
                 // Middleware
-
-                if ($route['middleware'] === 'guest') {
-                    if ($_SESSION['user'] ?? false) {
-                        header('location: /');
-                        exit();
-                    }
-                }
+                Middleware::resolve($route['middleware']);
                 return require base_path($route['controller']);
             }
         }
