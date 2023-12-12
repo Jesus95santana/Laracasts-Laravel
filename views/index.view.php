@@ -3,10 +3,10 @@
 <?php require("layouts/banner.php") ?>
 
 
-        <main>
-            <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                <h1>Home</h1>
-            </div>
-        </main>
+    <main>
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <p>Hello, <?= $_SESSION['user']['email'] ?? "Guest" ?>. Welcome to the home page.</p>
+        </div>
+    </main>
 
 <?php require("layouts/footer.php") ?>
