@@ -1,1 +1,1 @@
-Spent 1 hour reconfiguring docker and reviewing First Service Container code
+Spent 1 hour configuring database
