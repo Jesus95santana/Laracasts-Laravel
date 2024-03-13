@@ -1,22 +1,7 @@
-# Ignore everything
-*
-
-# Exclude .gitignore from being ignored
-!.gitignore
-
-# Include directories/courses
-!OOP-PHP
-!PHP-For-Beginners
-
-
-# Include everything within directories/courses
-!PHP-For-Beginners/**
-!app/public/wp-content/plugins/**
-!app/public/wp-content/themes/**
-
 # Remove specific folders
 database
 
 # Remove specific files
 .DS_Store
+.idea
 node_modules
