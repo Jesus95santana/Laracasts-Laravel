@@ -1,19 +1,7 @@
-# Ignore everything
-*
-
-# Exclude .gitignore from being ignored
-!.gitignore
-
-# Include directories/courses
-!OOP-PHP
-
-
-# Include everything within directories/courses
-!OOP-PHP/**
-
 # Remove specific folders
 database
 
 # Remove specific files
 .DS_Store
+.idea
 node_modules
