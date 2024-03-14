@@ -1,0 +1,1 @@
+Spent 1 hour configuring database
